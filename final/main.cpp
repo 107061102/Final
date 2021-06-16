@@ -32,14 +32,10 @@ int main(){
    while(1){
       if(uart.readable()){
             uart.read(recv, sizeof(recv));
-            //if (recv[0] == 'a') a = 1;
-            //pc.write(recv, sizeof(recv));
             if(recv[0] == '(') now = 0;
             else if(recv[0] == ')') {
                 tmp[now] = recv[0];
                 if(re) strcpy(recvall, tmp);
-                //if(re && a) strcpy(recvall2, tmp);
-                //a = 0;
                 strcpy(tmp, "");
             }
             else if (recv[0] != ',') {
@@ -50,7 +46,6 @@ int main(){
 }
 
 void Follow(){
-    char n[4][4];
     int x1, x2, y1, y2;
     char nx1[4], nx2[4], ny1[4], ny2[4];
     int tz;
