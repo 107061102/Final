@@ -23,12 +23,12 @@ int re = 1;
 void Follow();
 
 int main(){
-    xbee.set_baud(9600);
+   xbee.set_baud(9600);
    char recv[1];
    uart.set_baud(9600);
    t1.start(callback(&queue, &EventQueue::dispatch_forever));
    queue.call(Follow);
-    int a = 0;
+   int a = 0;
    while(1){
       if(uart.readable()){
             uart.read(recv, sizeof(recv));
