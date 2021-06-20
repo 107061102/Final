@@ -24,11 +24,18 @@ void Follow();
 
 int main(){
    xbee.set_baud(9600);
+<<<<<<< HEAD
+=======
+   char recv[1];
+>>>>>>> ee8da5a51f396deec3026dd155efd3977956026a
    uart.set_baud(9600);
    t1.start(callback(&queue, &EventQueue::dispatch_forever));
    queue.call(Follow);
    int a = 0;
+<<<<<<< HEAD
    char recv[1];
+=======
+>>>>>>> ee8da5a51f396deec3026dd155efd3977956026a
    while(1){
       if(uart.readable()){
             uart.read(recv, sizeof(recv));
@@ -46,6 +53,10 @@ int main(){
 }
 
 void Follow(){
+<<<<<<< HEAD
+=======
+    int x1, x2, y1, y2;
+>>>>>>> ee8da5a51f396deec3026dd155efd3977956026a
     char nx1[4], nx2[4], ny1[4], ny2[4];
     int x1, x2, y1, y2;
     int tz;
