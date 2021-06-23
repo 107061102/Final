@@ -24,18 +24,12 @@ void Follow();
 
 int main(){
    xbee.set_baud(9600);
-<<<<<<< HEAD
-=======
    char recv[1];
->>>>>>> ee8da5a51f396deec3026dd155efd3977956026a
    uart.set_baud(9600);
    t1.start(callback(&queue, &EventQueue::dispatch_forever));
    queue.call(Follow);
    int a = 0;
-<<<<<<< HEAD
    char recv[1];
-=======
->>>>>>> ee8da5a51f396deec3026dd155efd3977956026a
    while(1){
       if(uart.readable()){
             uart.read(recv, sizeof(recv));
@@ -53,10 +47,6 @@ int main(){
 }
 
 void Follow(){
-<<<<<<< HEAD
-=======
-    int x1, x2, y1, y2;
->>>>>>> ee8da5a51f396deec3026dd155efd3977956026a
     char nx1[4], nx2[4], ny1[4], ny2[4];
     int x1, x2, y1, y2;
     int tz;
@@ -68,14 +58,16 @@ void Follow(){
     float r;
     char buff[25];
     int task = 0;
+   
     sprintf(buff, "start 1\r\n");
     xbee.write(buff, 9);
     
     while(1){
         re = 0;
         i = 0;
-        tz = 0;
         len = strlen(recvall);
+       
+        tz = 0;
         if (recvall[0] == 'a'){
             i = 1;
             while(recvall[i] != ')') {
@@ -143,9 +135,6 @@ void Follow(){
         re = 1;
         dx = x1 - x2;
         dy = y1 - y2;
-
-        
-
         if (abs(dx) + abs(dy) > 0) {
             if (x1 < 65 + task * 5 && task < 2) {
                 car.turn(25, 1);
